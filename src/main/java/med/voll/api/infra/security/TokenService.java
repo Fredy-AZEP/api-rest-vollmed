@@ -36,6 +36,9 @@ public class TokenService {
 
     //VALIDAR JWT
     public String getSubject(String token) {
+        if(token == null){
+            throw new RuntimeException();
+        }
         DecodedJWT verifier = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret); //VALIDANDO FIRMA
